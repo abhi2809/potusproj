@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://rawgit.com/evanplaice/jquery-csv/master/src/jquery.csv.js"></script>
+    <title>Project POTUS-2016</title>
+<link rel="shortcut icon" type="image/png" href="https://assets.guim.co.uk/images/badges/1afed18f556a197f5abec8f97ede15a3/us-election.png"/>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87186263-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<style>
+
+body {
+    background-image: url("https://i.imgur.com/e7TVgrm.jpg");
+    background-repeat: no-repeat;
+     background-position: top;
+     background-attachment: fixed;
+     background-size:cover;
+    margin: 0;
+    padding: 0;
+}
+
+div.fbpost {
+
+   margin-left: 395px;
+   background-color: rgba(0, 0, 0, 0.4);
+   width:32%;
+  
+}
+div.gotit{
+   background-color: rgba(0, 0, 0, 0.4);
+}
+#chartdiv { 
+   width        : 100%;
+    height      : 500px;
+    background-color: #161616, 0.5;  
+}
+
+.amcharts-graph-g2 .amcharts-graph-stroke {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 500%;
+  stroke-dasharray: 0 \0/;    /* fixes IE prob */
+  stroke-dashoffset: 0 \0/;   /* fixes IE prob */
+  -webkit-animation: am-draw 60s;
+  animation: am-draw 60s;
+}
+
+.amcharts-graph-g1 .amcharts-graph-stroke {
+  stroke-dasharray: 3px 3px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  -webkit-animation: am-moving-dashes 1s linear infinite;
+  animation: am-moving-dashes 1s linear infinite;
+}
+
+@-webkit-keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -31px;
+  }
+}
+@keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -31px;
+  }
+}
+
+
+.lastBullet {
+  -webkit-animation: am-pulsating 1s ease-out infinite;
+  animation: am-pulsating 1s ease-out infinite;
+}
+@-webkit-keyframes am-pulsating {
+  0% {
+    stroke-opacity: 1;
+    stroke-width: 0px;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 50px;
+  }
+}
+@keyframes am-pulsating {
+  0% {
+    stroke-opacity: 1;
+    stroke-width: 0px;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 50px;
+  }
+}
+
+
+
+.amcharts-graph-g3 {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 500%;
+  stroke-dasharray: 0 \0/;    /* fixes IE prob */
+  stroke-dashoffset: 0 \0/;   /* fixes IE prob */
+  -webkit-animation: am-draw 60s;
+  animation: am-draw 60s;
+}
+@-webkit-keyframes am-draw {
+    0% {
+        stroke-dashoffset: 500%;
+    }
+    100% {
+        stroke-dashoffset: 0%;
+    }
+}
+@keyframes am-draw {
+    0% {
+        stroke-dashoffset: 500%;
+    }
+    100% {
+        stroke-dashoffset: 0%;
+    }
+}
+                                
+                                
+
+
+div.sansserif {
+    font-family: 'Lato', sans-serif;
+
+}
+p.sansserif {
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+    
+}
+div.candidates{
+    background-color: rgba(255, 0, 0, 0.4);
+    background-repeat: no-repeat;  
+}
+div.info{
+    background-color: rgba(0, 0, 255, 0.4);
+    background-repeat: no-repeat;  
+}
+h1.sansserif {
+    color:  white;
+    font-family: 'Lato', sans-serif;
+    font-size: 250%;
+    font-weight: 100;
+}
+h2.sansserif {
+    color:  white;
+    font-family: 'Lato', sans-serif;
+    font-size: 250%;
+    font-weight: 100;
+    text-align: center;
+}
+h4.sansserif {
+    color:  white;
+    font-family: 'Lato', sans-serif;
+    font-size: 150%;
+    font-weight: 400;
+}
+.centeral {
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+div.mid{
+    margin-right: 250px;
+    margin-left: 250px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+div.mid2{
+    
+    margin: 0;
+    padding: 0;
+}
+div.midbtm{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 150px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color:  white;
+    font-family: 'Lato', sans-serif;
+    font-size: 150%;
+    font-weight: 100;
+}
+div.btm{
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-left: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:  white;
+    font-family: 'Lato', sans-serif;
+    font-size: 150%;
+    font-weight: 100;
+}
+div.candidatetxt{
+    background-color:inherit;
+    padding: 10px;
+}
+div.infotxt{
+    background-color:inherit;
+    padding: 10px;
+}
+div.main{
+    background-image: url("https://i.imgur.com/yQV9cZv.jpg");
+    background-repeat: no-repeat;
+     background-position: right;
+     background-attachment: fixed;
+     background-size:cover;
+    margin: 0;
+    padding: 0;
+}
+
+img.a {
+    
+    margin: 20px 20px 20px 20px;  
+}
+img.b {
+    
+    margin: 0px 20px 20px 20px;  
+}
+</style>
+</head>
+
+<body>
+
+    <div style="padding-top: 160px;padding-bottom: 160px">
+        <div class="centeral" style="width: 60%;">
+            <h1 class="sansserif" style="text-align: center;font-weight: lighter;">Project POTUS 2016</h1>
+            <h4 class="sansserif" style="text-align: center;font-weight: lighter;"><b>___________________________________</b></h4>
+        </div>
+    </div>
+    <br>
+    <div class="candidates">
+        <div class="candidatetxt">
+            <img class="a" src="https://www.vectoropenstock.com/media/users/3/124758/raw/ccd84e1f0278c5282c9b9d7d041ee6cb-clinton-and-trump-cartoon-illustration.jpg" style="width:33%;float: right;">
+            <h2 class="sansserif">The Nominees</h2><br><br>
+            <p class="sansserif">After the much contested primaries in the first half of this year, We are finally left with these candidates from each of the major parties: Donald Trump (Republican) and Hillary Clinton (Democrat).
+            </p><br><br><br><br><br>
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="infotxt">
+            <img class="a" src="https://i.imgur.com/D4osJID.png" style="width:33%;float: left;">
+            <h2 class="sansserif">Insights, As they happen</h2><br><br>
+            <p class="sansserif">We monitor Twitter for mentions of the Democratic and Republican Presidential Nominees, analyze the sentiment of the content and display it graphically. Both the data and tweets update in real time so you can track the conversation as it happens!
+            </p><br><br><br><br><br><br>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <br><br><br><br><br><br><br><br><br><br><br>
+        
+       <div class="mid">
+            <h1 class="sansserif" style="text-align: center;color: white;font-weight: lighter;">So what does twitter say?</h1>
+       </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <div class="fbpost"><h2 class="sansserif">SPOT ON!</h2><img class="b" src="https://i.imgur.com/Z2MDOmY.png"></div>
+<script src="https://www.amcharts.com/lib/3/amcharts.js?x"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js?x"></script>
+<script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>
+<div id="chartdiv"></div>                                              
+<br><br><br><br><br>
+ 
+    </div>
+
+<script type="text/javascript">
+
+ 
+
+$.ajax({ url: "https://raw.githubusercontent.com/abhishekkhajuria/mygithubpage/master/scores2.csv", success: function(csv) {
+    console.log(csv);  
+
+var out = $.csv.toObjects(csv);
+
+console.log(out);
+out[0] = {
+        "date": "01-10-2016",
+        "zero": 0,
+        "Trump": -0.1,
+        "Clinton": -0.4
+    };
+out[38] = {
+        "date": "08-11-2016",
+       "zero": 0,
+        "Trump": 0.82,
+        "Clinton": 0.5,
+        "bulletClass": "lastBullet"
+    };
+
+    var chartData = out;
+     
+var chart = AmCharts.makeChart("chartdiv", {
+  type: "serial",
+  theme: "dark",
+  dataDateFormat: "DD-MM-YYYY",
+  dataProvider: chartData,
+
+  addClassNames: true,
+  startDuration: 1,
+  color: "#FFFFFF",
+  marginLeft: 0,
+
+  categoryField: "date",
+  categoryAxis: {
+    parseDates: true,
+    minPeriod: "DD",
+    autoGridCount: false,
+    gridCount: 50,
+    gridAlpha: 0.1,
+    gridColor: "#FFFFFF",
+    axisColor: "#555555",
+    dateFormats: [{
+        period: 'DD',
+        format: 'DD'
+    }, {
+        period: 'WW',
+        format: 'MMM DD'
+    }, {
+        period: 'MM',
+        format: 'MMM'
+    }, {
+        period: 'YYYY',
+        format: 'YYYY'
+    }]
+  },
+
+  valueAxes: [{
+    id: "a3",
+    title: "score",
+    position: "left",
+    gridAlpha: 0,
+    axisAlpha: 0,
+    inside: true,
+  }],
+  graphs: [{
+    id: "g2",
+    valueField: "Trump",
+    classNameField: "bulletClass",
+    title: "Trump",
+    type: "line",
+    valueAxis: "a3",
+    lineColor: "#ff0000",
+    lineThickness: 1,
+    legendValueText: "[[value]]",
+    bullet: "round",
+    bulletBorderColor: "#ff0000",
+    bulletBorderAlpha: 1,
+    bulletBorderThickness: 1,
+    labelText: "[[townName2]]",
+    labelPosition: "right",
+    balloonText: "Trump: [[value]]",
+    showBalloon: true,
+    animationPlayed: true,
+  },{
+    id: "g3",
+    title: "Clinton",
+    valueField: "Clinton",
+    classNameField: "bulletClass",
+    type: "line",
+    valueAxis: "a3",
+    lineColor: "#0000ff",
+    balloonText: "Clinton: [[value]]",
+    lineThickness: 1,
+    legendValueText: "[[value]]",
+    bullet: "round",
+    bulletBorderColor: "#0000ff",
+    bulletBorderThickness: 1,
+    bulletBorderAlpha: 1,
+    dashLengthField: "dashLength",
+    animationPlayed: true
+  },{
+    id: "g1",
+    title: "zero",
+    valueField: "zero",
+    classNameField: "bulletClass",
+    type: "line",
+    valueAxis: "a3",
+    lineColor: "#ffffff",
+    lineThickness: 1,
+    dashLengthField: "dashLength",
+    animationPlayed: true
+  }],
+
+  chartCursor: {
+    zoomable: false,
+    categoryBalloonDateFormat: "DD",
+    cursorAlpha: 0,
+    valueBalloonsEnabled: false
+  },
+  legend: {
+    bulletType: "round",
+    equalWidths: false,
+    valueWidth: 120,
+    useGraphSettings: true,
+    color: "#FFFFFF"
+  }
+});
+
+  }
+});
+
+
+</script>
+    
+ <div class="mid2">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        
+        <div class="midbtm">
+           <h2 style="color: white;font-weight: lighter;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A word of caution:</h2>
+            <ul>
+              <li>The sample size may be too small to provide insights into the collective opinion.</li><br>
+              <li>The opinion of the Twitterati may not reflect the actual popularity or the election result.</li><br>
+              <li>The sentiment algorithm may not be reliably accurate.</li>
+            </ul>
+
+        </div>
+        <div>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="btm">
+            By:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Abhishek Khajuria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Facebook: 
+             <a href="https://www.facebook.com/1.618abhi"> <i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             Linked in: 
+             <a href="https://in.linkedin.com/in/abhishek-khajuria-561495131"> <i class="fa fa-linkedin"></i> </a>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             Email: 1.618abhi@gmail.com 
+        </div>
+ </div>
+
+</body>
+
+</html>
